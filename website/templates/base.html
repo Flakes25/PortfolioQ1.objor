@@ -1,31 +1,52 @@
 {% load static %}
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wizard Portfolio</title>
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:wght@300;500&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
 <nav>
 
-    <a href="/">Home</a>
+    <h2>Wizard Portfolio</h2>
 
-    <a href="/about/">About</a>
+    <div class="links">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/projects/">Projects</a>
+        <a href="/contact/">Contact</a>
+    </div>
 
-    <a href="/projects/">Projects</a>
-
-    <a href="/contact/">Contact</a>
+<div id="stars"></div>
+<div id="stars2"></div>
+<div id="stars3"></div>
 
 </nav>
-
-<hr>
 
 {% block content %}
 {% endblock %}
 
+<div class="cursor"></div>
+
+<script>
+
+const cursor=document.querySelector(".cursor");
+
+document.addEventListener("mousemove",(e)=>{
+
+cursor.style.left=e.clientX+"px";
+
+cursor.style.top=e.clientY+"px";
+
+});
+
+</script>
 </body>
 </html>
