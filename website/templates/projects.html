@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="projects-page">
+
+    <h1 class="page-title">My Projects</h1>
+
+    <div class="projects-grid">
+
+        {% for project in projects %}
+
+        <a href="{% url 'project_detail' project.id %}" class="project-card">
+
+            <h2>{{ project.project_name }}</h2>
+
+            <p>{{ project.tech_stack }}</p>
+
+            <span>View Details →</span>
+
+        </a>
+
+        {% empty %}
+
+        <p>No projects available.</p>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

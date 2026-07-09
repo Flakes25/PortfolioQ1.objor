@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="project-detail-page">
+
+    <div class="detail-card">
+
+        <h1>{{ project.project_name }}</h1>
+
+        <div class="info">
+
+            <h3>Description</h3>
+
+            <p>{{ project.description }}</p>
+
+        </div>
+
+        <div class="info">
+
+            <h3>Technology Stack</h3>
+
+            <p>{{ project.tech_stack }}</p>
+
+        </div>
+
+        <a href="{{ project.link }}" target="_blank" class="visit-btn">
+            Visit Project →
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}
