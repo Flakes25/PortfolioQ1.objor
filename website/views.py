@@ -9,8 +9,8 @@ def home(request):
 def about(request):
     person = PersonalInformation.objects.first()
 
-    return render(request, 'about.html', {
-        'person': person
+    return render(request, "about.html", {
+        "person": person
     })
 
 

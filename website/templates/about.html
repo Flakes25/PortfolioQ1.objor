@@ -8,26 +8,9 @@
 
     <div class="about-card">
 
-        <h2>Hello!</h2>
+        <h2>{{ person.first_name }} {{ person.middle_name }} {{ person.last_name }}</h2>
 
-        <p>
-            I'm Mavei, a college student with a passion for technology and
-            creative problem-solving. I enjoy learning new programming
-            languages, building web applications, and exploring different
-            areas of software development.
-        </p>
-
-        <p>
-            Throughout my academic journey, I've worked on projects that have
-            strengthened my skills in Python, C++, HTML, CSS, JavaScript, and
-            Django. Every project allows me to improve my knowledge and gain
-            practical experience.
-        </p>
-
-        <p>
-            This portfolio showcases some of the work I've created and reflects
-            my continuous growth as a developer and lifelong learner.
-        </p>
+        <p>{{ person.summary }}</p>
 
     </div>
 

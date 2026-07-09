@@ -464,3 +464,138 @@ z-index:999;
     box-shadow:0 0 25px #d4af37;
 
 }
+
+/* ===========================
+   ABOUT PAGE
+=========================== */
+
+.about{
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:140px 20px 60px;
+}
+
+.about h1{
+
+    font-family:"Cinzel",serif;
+
+    color:#d4af37;
+
+    font-size:55px;
+
+    margin-bottom:50px;
+}
+
+.about-card{
+
+    width:900px;
+
+    max-width:95%;
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(212,175,55,.25);
+
+    border-radius:20px;
+
+    padding:50px;
+
+    color:white;
+
+    box-shadow:0 0 25px rgba(0,0,0,.3);
+}
+
+.about-card h2{
+
+    color:#d4af37;
+
+    font-size:35px;
+
+    margin-bottom:20px;
+}
+
+.about-card p{
+
+    font-size:20px;
+
+    line-height:1.8;
+
+    color:#ddd;
+}
+
+
+/* ===========================
+   CONTACT PAGE
+=========================== */
+
+.contact{
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:140px 20px 60px;
+}
+
+.contact h1{
+
+    font-family:"Cinzel",serif;
+
+    color:#d4af37;
+
+    font-size:55px;
+
+    margin-bottom:50px;
+}
+
+.contact-card{
+
+    width:900px;
+
+    max-width:95%;
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(212,175,55,.25);
+
+    border-radius:20px;
+
+    padding:50px;
+
+    color:white;
+
+    box-shadow:0 0 25px rgba(0,0,0,.3);
+}
+
+.contact-card p{
+
+    font-size:20px;
+
+    line-height:2;
+
+    color:#ddd;
+}
+
+.contact-card strong{
+
+    color:#d4af37;
+}
