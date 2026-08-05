@@ -56,8 +56,9 @@ def project_create(request):
         "form": form
     })
 
+from .forms import InquiryForm
+
 def contact(request):
-    person = PersonalInformation.objects.first()
 
     if request.method == "POST":
         form = InquiryForm(request.POST)
@@ -68,6 +69,8 @@ def contact(request):
 
     else:
         form = InquiryForm()
+
+    person = PersonalInformation.objects.first()
 
     return render(request, "contact.html", {
         "person": person,
