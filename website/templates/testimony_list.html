@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="projects-page">
+
+    <h1 class="page-title">Testimonials</h1>
+
+    <div class="projects-container">
+
+        {% for testimony in testimonies %}
+
+        <a href="{% url 'testimony_detail' testimony.id %}" class="project-card">
+
+            <div>
+                <h2>{{ testimony.full_name }}</h2>
+                <p>{{ testimony.content|truncatewords:15 }}</p>
+            </div>
+
+            <span class="arrow">→</span>
+
+        </a>
+
+        {% empty %}
+
+        <div class="project-card">
+            <div>
+                <h2>No testimonials yet.</h2>
+                <p>Be the first to leave a testimonial.</p>
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

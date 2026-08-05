@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="projects">
+
+    <h1>Leave a Testimony</h1>
+
+    <div class="project-card">
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit" class="btn">
+                Submit Testimony
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+{% endblock %}

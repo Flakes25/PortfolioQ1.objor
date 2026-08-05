@@ -4,15 +4,31 @@
 
 <section class="contact">
 
-    <h1>Contact</h1>
+    <h1>Contact Me</h1>
 
     <div class="contact-card">
 
+        <h2>Personal Information</h2>
+
         <p><strong>Phone:</strong> {{ person.contact_number }}</p>
-
         <p><strong>Email:</strong> {{ person.email }}</p>
-
         <p><strong>Address:</strong> {{ person.address }}</p>
+
+        <hr>
+
+        <h2>Send an Inquiry</h2>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit" class="btn">
+                Send Inquiry
+            </button>
+
+        </form>
 
     </div>
 
