@@ -6,6 +6,10 @@
 
     <h1 class="page-title">Testimonials</h1>
 
+    <a href="{% url 'testimony_create' %}" class="btn">
+        Add Testimony
+    </a>
+
     <div class="projects-container">
 
         {% for testimony in testimonies %}

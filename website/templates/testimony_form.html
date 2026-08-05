@@ -2,17 +2,33 @@
 
 {% block content %}
 
-<section class="projects">
+<section class="contact">
 
     <h1>Leave a Testimony</h1>
 
-    <div class="project-card">
+    <div class="contact-card">
 
-        <form method="POST">
+        <form method="POST" class="portfolio-form">
 
             {% csrf_token %}
 
-            {{ form.as_p }}
+            {% for field in form %}
+
+            <div class="form-group">
+
+                {{ field.label_tag }}
+
+                {{ field }}
+
+                {% if field.errors %}
+                    <p class="error">
+                        {{ field.errors }}
+                    </p>
+                {% endif %}
+
+            </div>
+
+            {% endfor %}
 
             <button type="submit" class="btn">
                 Submit Testimony

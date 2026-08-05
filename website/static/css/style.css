@@ -599,3 +599,65 @@ z-index:999;
 
     color:#d4af37;
 }
+
+.projects-page .btn{
+    margin-bottom:40px;
+}
+
+/* FORM */
+
+.portfolio-form{
+    margin-top:35px;
+}
+
+.form-group{
+    margin-bottom:22px;
+}
+
+.form-group label{
+    display:block;
+    color:#d4af37;
+    font-family:"Cinzel", serif;
+    font-size:18px;
+    margin-bottom:8px;
+}
+
+/* ALL INPUTS */
+
+.portfolio-form input,
+.portfolio-form textarea{
+    width:100%;
+    padding:14px 18px;
+    border:2px solid rgba(212,175,55,.35);
+    border-radius:12px;
+    background:rgba(255,255,255,.06);
+    color:#fff;
+    font-size:18px;
+    font-family:"Cormorant Garamond", serif;
+    transition:.3s;
+    outline:none;
+}
+
+/* Focus Effect */
+
+.portfolio-form input:focus,
+.portfolio-form textarea:focus{
+    border-color:#d4af37;
+    background:rgba(255,255,255,.1);
+    box-shadow:0 0 18px rgba(212,175,55,.45);
+}
+
+/* Textarea */
+
+.portfolio-form textarea{
+    min-height:180px;
+    resize:vertical;
+}
+
+/* Placeholder */
+
+.portfolio-form input::placeholder,
+.portfolio-form textarea::placeholder{
+    color:#aaa;
+}
+
