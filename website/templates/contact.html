@@ -11,22 +11,32 @@
         <h2>Personal Information</h2>
 
         <p><strong>Phone:</strong> {{ person.contact_number }}</p>
+
         <p><strong>Email:</strong> {{ person.email }}</p>
+
         <p><strong>Address:</strong> {{ person.address }}</p>
 
         <hr>
 
         <h2>Send an Inquiry</h2>
 
-        <form method="POST">
-
+        <form method="POST" class="portfolio-form">
             {% csrf_token %}
+            
+            {% for field in form %}
+            <div class="form-group">
+                {{ field.label_tag }}
+                {{ field }}
+                
+                {% if field.errors %}
+                    <div class="error-container">
+                        {{ field.errors }}
+                    </div>
+                {% endif %}
+            </div>
+            {% endfor %}
 
-            {{ form.as_p }}
-
-            <button type="submit" class="btn">
-                Send Inquiry
-            </button>
+            <button type="submit" class="btn">Send Inquiry</button>
 
         </form>
 

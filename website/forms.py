@@ -8,10 +8,21 @@ class ProjectForm(forms.ModelForm):
         fields = "__all__"
 
         widgets = {
-            "project_name": forms.TextInput(attrs={"class": "form-control"}),
-            "description": forms.Textarea(attrs={"class": "form-control"}),
-            "tech_stack": forms.TextInput(attrs={"class": "form-control"}),
-            "link": forms.URLInput(attrs={"class": "form-control"}),
+            "project_name": forms.TextInput(attrs={
+                "placeholder": "Project Name"
+            }),
+
+            "description": forms.Textarea(attrs={
+                "placeholder": "Project Description"
+            }),
+
+            "tech_stack": forms.TextInput(attrs={
+                "placeholder": "Technology Used"
+            }),
+
+            "link": forms.URLInput(attrs={
+                "placeholder": "Project Link"
+            }),
         }
 
 
@@ -21,12 +32,29 @@ class InquiryForm(forms.ModelForm):
         fields = "__all__"
 
         widgets = {
-            "first_name": forms.TextInput(attrs={"class": "form-control"}),
-            "last_name": forms.TextInput(attrs={"class": "form-control"}),
-            "contact_number": forms.TextInput(attrs={"class": "form-control"}),
-            "email": forms.EmailInput(attrs={"class": "form-control"}),
-            "address": forms.TextInput(attrs={"class": "form-control"}),
-            "message": forms.Textarea(attrs={"class": "form-control"}),
+            "first_name": forms.TextInput(attrs={
+                "placeholder": "First Name"
+            }),
+
+            "last_name": forms.TextInput(attrs={
+                "placeholder": "Last Name"
+            }),
+
+            "contact_number": forms.TextInput(attrs={
+                "placeholder": "Contact Number"
+            }),
+
+            "email": forms.EmailInput(attrs={
+                "placeholder": "Email Address"
+            }),
+
+            "address": forms.TextInput(attrs={
+                "placeholder": "Address"
+            }),
+
+            "message": forms.Textarea(attrs={
+                "placeholder": "Your Message"
+            }),
         }
 
 
@@ -36,6 +64,11 @@ class TestimonyForm(forms.ModelForm):
         fields = "__all__"
 
         widgets = {
-            "full_name": forms.TextInput(attrs={"class": "form-control"}),
-            "content": forms.Textarea(attrs={"class": "form-control"}),
+            "full_name": forms.TextInput(attrs={
+                "placeholder": "Full Name"
+            }),
+
+            "content": forms.Textarea(attrs={
+                "placeholder": "Write your testimony..."
+            }),
         }

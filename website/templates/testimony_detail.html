@@ -2,13 +2,20 @@
 
 {% block content %}
 
-<section class="projects">
+<section class="project-detail-page">
 
-    <div class="project-card">
+    <div class="detail-card">
 
         <h1>{{ testimony.full_name }}</h1>
 
-        <p>{{ testimony.content }}</p>
+        <div class="info">
+            <h3>Testimonial</h3>
+            <p>{{ testimony.content }}</p>
+        </div>
+
+        <a href="javascript:history.back()" class="visit-btn">
+            ← Back
+        </a>
 
     </div>
 
