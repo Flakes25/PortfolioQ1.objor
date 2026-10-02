@@ -1,5 +1,5 @@
 from django import forms
-from .models import Project, Inquiry, Testimony
+from .models import Project, Inquiry, Testimony, TechStack
 
 
 class ProjectForm(forms.ModelForm):
@@ -57,6 +57,11 @@ class InquiryForm(forms.ModelForm):
             }),
         }
 
+class TechStackForm(forms.ModelForm):
+
+  class Meta:
+    model = TechStack
+    fields = ["name"]
 
 class TestimonyForm(forms.ModelForm):
     class Meta:
