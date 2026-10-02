@@ -4,13 +4,38 @@
 <div class="contact" style="padding-top: 140px;">
     <h1 style="font-family: 'Cinzel', serif; color: #d4af37; font-size: 45px; margin-bottom: 30px; text-align: center;">Add New Project</h1>
     
-    <div class="contact-card" style="width: 700px; max-width: 95%;">
+    <div class="contact-card" style="width: 750px; max-width: 95%;">
         <form method="POST" class="portfolio-form">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn" style="margin-top: 20px;">Save Project</button>
+            
+            <div class="form-group">
+                <label for="{{ form.project_name.id_for_label }}">Project Name</label>
+                {{ form.project_name }}
+            </div>
+            
+            <div class="form-group">
+                <label for="{{ form.description.id_for_label }}">Description</label>
+                {{ form.description }}
+            </div>
+            
+            <div class="form-group">
+                <label for="{{ form.tech_stack.id_for_label }}">Tech Stack</label>
+                <div style="color: #ddd; width: 100%; padding-top: 5px;">
+                    {{ form.tech_stack }}
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="{{ form.link.id_for_label }}">Link</label>
+                {{ form.link }}
+            </div>
+            
+            <!-- Button Group -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 35px;">
+                <a href="{% url 'dashboard' %}" class="btn" style="font-size: 16px; padding: 10px 25px; border-color: rgba(212, 175, 55, 0.4); color: #bbb;">&larr; Back</a>
+                <button type="submit" class="btn" style="font-size: 16px; padding: 10px 30px;">Save Project</button>
+            </div>
         </form>
-        <p style="margin-top: 25px; text-align: center;"><a href="{% url 'dashboard' %}" style="color: #d4af37; text-decoration: none;">&larr; Back to Dashboard</a></p>
     </div>
 </div>
 {% endblock %}

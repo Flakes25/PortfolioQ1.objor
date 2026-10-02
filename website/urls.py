@@ -24,7 +24,8 @@ urlpatterns = [
 
     # Admin / Authentication
     path("login/", views.admin_login, name="admin_login"),
-    
+    path('logout/', views.admin_logout, name='admin_logout'),
+
     # --- NEW DASHBOARD & CREATE PATHS ---
     path("dashboard/", views.dashboard, name="dashboard"),
     path(

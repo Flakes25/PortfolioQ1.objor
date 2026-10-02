@@ -7,10 +7,18 @@
     <div class="contact-card" style="width: 600px; max-width: 95%;">
         <form method="POST" class="portfolio-form">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn" style="margin-top: 20px;">Save Tech Stack</button>
+            
+            <div class="form-group">
+                <label for="{{ form.name.id_for_label }}">Tech Stack Name</label>
+                {{ form.name }}
+            </div>
+            
+            <!-- Button Group -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 35px;">
+                <a href="{% url 'dashboard' %}" class="btn" style="font-size: 16px; padding: 10px 25px; border-color: rgba(212, 175, 55, 0.4); color: #bbb;">&larr; Back</a>
+                <button type="submit" class="btn" style="font-size: 16px; padding: 10px 30px;">Save Tech Stack</button>
+            </div>
         </form>
-        <p style="margin-top: 25px; text-align: center;"><a href="{% url 'dashboard' %}" style="color: #d4af37; text-decoration: none;">&larr; Back to Dashboard</a></p>
     </div>
 </div>
 {% endblock %}

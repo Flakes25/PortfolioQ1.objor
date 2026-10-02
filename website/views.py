@@ -3,7 +3,7 @@ from django.views.generic import ListView
 from django.contrib import messages
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 
 from .models import (
@@ -206,3 +206,8 @@ def create_tech_stack_view(request):
     form = TechStackForm()
 
   return render(request, "dashboard/create_tech_stack.html", {"form": form})
+
+@user_passes_test(superuser_required, login_url="admin_login")
+def admin_logout(request):
+  logout(request)
+  return redirect("admin_login")
