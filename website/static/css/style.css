@@ -776,5 +776,65 @@ footer { color: #aaa; }
     .project-card h2 { min-height: 0; }
 }
 
+/* ===========================
+   RADIO BUTTON STYLING
+=========================== */
 
+.radio-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
 
+.radio-list li {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.radio-list input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #d4af37;
+    border-radius: 50%;
+    outline: none;
+    background: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    position: relative;
+    margin-right: 12px;
+    flex-shrink: 0;
+    transition: 0.3s ease;
+}
+
+.radio-list input[type="radio"]:checked {
+    background: #d4af37;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+}
+
+.radio-list input[type="radio"]:checked::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    background: #07090f;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.radio-list label {
+    font-size: 19px !important;
+    color: #ddd !important;
+    cursor: pointer;
+    font-family: "Cormorant Garamond", serif !important;
+    margin-bottom: 0 !important;
+}
+
+.radio-list label:hover {
+    color: #d4af37 !important;
+}

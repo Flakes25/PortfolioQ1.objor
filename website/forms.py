@@ -3,23 +3,23 @@ from .models import Project, Inquiry, Testimony, TechStack
 
 
 class ProjectForm(forms.ModelForm):
+    tech_stack = forms.ModelChoiceField(
+        queryset=TechStack.objects.all(),
+        widget=forms.RadioSelect(attrs={'class': 'radio-list'}),
+        required=True
+    )
+
     class Meta:
         model = Project
-        fields = "__all__"
+        fields = ["project_name", "description", "tech_stack", "link"]
 
         widgets = {
             "project_name": forms.TextInput(attrs={
                 "placeholder": "Project Name"
             }),
-
             "description": forms.Textarea(attrs={
                 "placeholder": "Project Description"
             }),
-
-            "tech_stack": forms.TextInput(attrs={
-                "placeholder": "Technology Used"
-            }),
-
             "link": forms.URLInput(attrs={
                 "placeholder": "Project Link"
             }),
