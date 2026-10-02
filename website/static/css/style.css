@@ -504,3 +504,27 @@ nav h2 {
     align-self: flex-end;
     margin-top: 10px;
 }
+
+/* Plain HTML form errors */
+.error-container {
+    color: #ff4c4c;
+    font-size: 16px;
+    text-shadow: 0 0 10px rgba(255, 76, 76, 0.6);
+}
+
+/* Flash messages */
+.alert {
+    padding: 14px 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    font-size: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    background: rgba(212, 175, 55, 0.1);
+    color: #d4af37;
+}
+
+.alert.error {
+    border-color: rgba(255, 76, 76, 0.5);
+    background: rgba(255, 76, 76, 0.1);
+    color: #ff4c4c;
+}
