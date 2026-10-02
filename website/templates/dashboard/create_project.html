@@ -8,6 +8,14 @@
         <form method="POST" class="portfolio-form">
             {% csrf_token %}
             
+            <!-- ADD THIS ERROR DISPLAY BLOCK -->
+            {% if form.errors %}
+                <div style="color: #ff6b6b; background: rgba(255, 0, 0, 0.1); padding: 12px; border-radius: 6px; margin-bottom: 20px; font-size: 14px; border: 1px solid rgba(255, 0, 0, 0.3);">
+                    <strong>Please fix the errors below:</strong>
+                    {{ form.errors }}
+                </div>
+            {% endif %}
+            
             <div class="form-group">
                 <label for="{{ form.project_name.id_for_label }}">Project Name</label>
                 {{ form.project_name }}
