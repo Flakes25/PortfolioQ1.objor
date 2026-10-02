@@ -3,6 +3,8 @@ from django.views.generic import ListView
 from django.contrib import messages
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
+from django.contrib.auth import authenticate, login
+from django.shortcuts import render, redirect
 
 from .models import (
     Project,
@@ -126,3 +128,81 @@ def testimony_detail(request, id):
     return render(request, "testimony_detail.html", {
         "testimony": testimony
     })
+
+def admin_login(request):
+    if request.user.is_authenticated and request.user.is_superuser:
+        return redirect("dashboard")
+
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        user = authenticate(
+            request,
+            username=username,
+            password=password
+        )
+
+        if user is not None and user.is_superuser:
+            login(request, user)
+            return redirect("dashboard")
+
+        return render(request, "core/login.html", {
+            "error": "Invalid admin credentials."
+        })
+
+    return render(request, "login.html")
+
+
+
+# DASHBOARD VIEWS
+
+from django.contrib.auth.decorators import user_passes_test
+from .forms import ProjectForm, TechStackForm
+from .models import Project, TechStack
+
+
+# Helper to check if user is a superuser
+def superuser_required(user):
+  return user.is_authenticated and user.is_superuser
+
+
+@user_passes_test(superuser_required, login_url="admin_login")
+def dashboard(request):
+  projects = Project.objects.all().prefetch_related("tech_stack")
+  tech_stacks = TechStack.objects.all()
+
+  return render(
+      request,
+      "dashboard/dashboard.html",
+      {
+          "projects": projects,
+          "tech_stacks": tech_stacks,
+      },
+  )
+
+
+@user_passes_test(superuser_required, login_url="admin_login")
+def create_project_view(request):
+  if request.method == "POST":
+    form = ProjectForm(request.POST)
+    if form.is_valid():
+      form.save()
+      return redirect("dashboard")
+  else:
+    form = ProjectForm()
+
+  return render(request, "dashboard/create_project.html", {"form": form})
+
+
+@user_passes_test(superuser_required, login_url="admin_login")
+def create_tech_stack_view(request):
+  if request.method == "POST":
+    form = TechStackForm(request.POST)
+    if form.is_valid():
+      form.save()
+      return redirect("dashboard")
+  else:
+    form = TechStackForm()
+
+  return render(request, "dashboard/create_tech_stack.html", {"form": form})

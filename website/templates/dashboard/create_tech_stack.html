@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="contact" style="padding-top: 140px;">
+    <h1 style="font-family: 'Cinzel', serif; color: #d4af37; font-size: 45px; margin-bottom: 30px; text-align: center;">Add New Tech Stack</h1>
+    
+    <div class="contact-card" style="width: 600px; max-width: 95%;">
+        <form method="POST" class="portfolio-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn" style="margin-top: 20px;">Save Tech Stack</button>
+        </form>
+        <p style="margin-top: 25px; text-align: center;"><a href="{% url 'dashboard' %}" style="color: #d4af37; text-decoration: none;">&larr; Back to Dashboard</a></p>
+    </div>
+</div>
+{% endblock %}

@@ -10,13 +10,28 @@ class TechStack(models.Model):
 
 
 class Project(models.Model):
-    project_name = models.CharField(max_length=100)
-    description = models.TextField()
-    tech_stack = models.ManyToManyField(TechStack)
-    link = models.URLField()
+  project_name = models.CharField(max_length=100)
+  description = models.TextField()
+  tech_stack = models.ManyToManyField(TechStack)
+  link = models.URLField()
+  created_at = models.DateTimeField(
+      auto_now_add=True
+  )  # Optional if you want track creation date, or rely on TechStack
 
-    def __str__(self):
-        return self.project_name
+  def __str__(self):
+    return self.project_name
+
+  # Helper property to truncate description to 50 characters as required
+  @property
+  def truncated_description(self):
+    if len(self.description) > 50:
+      return self.description[:50] + "..."
+    return self.description
+
+  # Helper property to display tech stacks comma-separated in your table
+  @property
+  def tech_stack_comma_separated(self):
+    return ", ".join([ts.name for ts in self.tech_stack.all()])
 
 
 class PersonalInformation(models.Model):
