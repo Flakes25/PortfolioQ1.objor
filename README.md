@@ -1,111 +1,107 @@
 # Wizard Portfolio
 
-A modern portfolio website built with **Django**, inspired by a magical fantasy aesthetic featuring a cinematic landing page, animated stars, glowing cursor effects, and a dark-themed user interface.
+A modern, magical fantasy-themed portfolio website built with **Django**, featuring a cinematic landing page, animated stars, glowing cursor effects, a dark-themed user interface, and a secure admin-only dashboard.
 
-## Installation
+---
 
-Clone the repository:
+## Features
 
+- **Cinematic Landing Page & UI**: Dark-themed wizard aesthetic with smooth scrolling, glowing accents, and custom typography (`Cinzel` and `Cormorant Garamond`).
+- **Dynamic Projects & Tech Stacks**: Projects linked via a Many-to-Many relationship with reusable tech stacks without data duplication.
+- **Secure Admin Dashboard**: Protected by `@user_passes_test` and custom superuser authentication to manage projects and tech stacks.
+- **Interactive Forms & Views**: Custom creation forms, public contact forms, and secure authentication and logout flows.
+
+---
+
+## Setup & Installation Instructions
+
+### 1. Clone the Repository
 ```bash
 git clone https://github.com/Flakes25/PortfolioQ1.objor.git
-```
-
-Go into the project folder:
-
-```bash
 cd PortfolioQ1.objor
 ```
 
-Create a virtual environment:
-
+### 2. Create and Activate a Virtual Environment
 ```bash
 python -m venv venv
 ```
+- **Windows:**
+  ```bash
+  venv\Scripts\activate
+  ```
+- **macOS/Linux:**
+  ```bash
+  source venv/bin/activate
+  ```
 
-Activate the virtual environment.
-
-Windows:
-
+### 3. Install Dependencies
 ```bash
-venv\Scripts\activate
+pip install -r requirements.txt
 ```
 
-macOS/Linux:
+### 4. Configure Environment Variables
+1. Duplicate the provided `.env.example` file and rename the copy to `.env`:
+   ```bash
+   cp .env.example .env
+   ```
+   *(Note: Ensure your actual `.env`, `.venv/`, and `db.sqlite3` files remain untracked and excluded via `.gitignore`).*
+2. Update your `.env` file with your local or production settings (e.g., `DEBUG=False`, unique `SECRET_KEY`).
 
+### 5. Run Database Migrations
 ```bash
-source venv/bin/activate
+python manage.py migrate
 ```
 
-Install Django:
-
+### 6. Create a Superuser (Admin Account)
 ```bash
-pip install django
+python manage.py createsuperuser
 ```
+*(You will use this superuser account to log into the custom `/login/` and access the `/dashboard/`).*
 
-Run the development server:
-
+### 7. Run the Development Server
 ```bash
 python manage.py runserver
 ```
-
 Open your browser and visit:
+- **Public Site:** `http://127.0.0.1:8000/`
+- **Admin Dashboard & Login:** `http://127.0.0.1:8000/dashboard/`
 
-```
-http://127.0.0.1:8000/
-```
+---
 
 ## Project Structure
 
 ```
 PortfolioWebsite/
 │
-├── portfolio/
+├── portfolio/             # Django project settings & URL configuration
 │
-├── website/
-│   ├── templates/
-│   ├── static/
-│   │   ├── css/
-│   │   └── images/
-│   ├── views.py
-│   ├── urls.py
-│   └── models.py
+├── website/               # Main portfolio app
+│   ├── templates/         # HTML templates (base, dashboard, core login, etc.)
+│   ├── static/            # CSS stylesheets, images, and static assets
+│   ├── views.py           # Public and protected admin dashboard views
+│   ├── forms.py           # Django model forms for projects and tech stacks
+│   ├── models.py          # Project and TechStack models (ManyToManyField)
+│   └── urls.py            # App-level URL routing
 │
 ├── manage.py
-├── .gitignore
+├── .env.example           # Environment variables template
+├── .gitignore             # Excluded sensitive files (db.sqlite3, .env, venv)
 └── README.md
 ```
 
-## Pages
-
-- Home
-- About
-- Projects
-- Contact
-
-## Featured Project
-
-### TimeWisee
-
-TimeWisee is a web-based study planner that helps students organize their schedules and tasks. It includes a secure authentication system using Firebase Authentication and provides an accessible, responsive interface.
-
-Website:
-
-https://timewisee.vercel.app
+---
 
 ## Git Workflow
 
-This project follows a Git workflow where development is completed on a separate branch.
+This project follows a professional branch-based Git workflow:
+- `main` — Production-ready release branch
+- `feature/*` — Dedicated feature branches for ongoing development (e.g., admin dashboard and views)
 
-- `main` — Production branch
-- `develop` — Active development branch
+Changes are thoroughly tested, committed with descriptive messages, and merged via Pull Requests.
 
-Changes are committed with descriptive commit messages and merged into `main` using Pull Requests.
+---
 
 ## Author
 
-**Mavei**
-
-GitHub:
-https://github.com/Flakes25
-
----
+**Mavei**  
+GitHub: [https://github.com/Flakes25](https://github.com/Flakes25)
